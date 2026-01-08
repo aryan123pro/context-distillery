@@ -1,0 +1,177 @@
+{
+  "run_id": "run_7478eb89b0a3",
+  "step_index": 6,
+  "objective": "Demo objective for testing compression engine",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_fallback_1",
+        "key": null,
+        "text": "We are building a multi-agent context compression engine. Summarize the core objective in one sentence.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_d82fbf0fd2b0"
+        ]
+      },
+      {
+        "id": "mem_fallback_2",
+        "key": null,
+        "text": "Add a constraint: compression must be inspectable and deterministic.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_b6b8e0b5f097"
+        ]
+      },
+      {
+        "id": "mem_fallback_3",
+        "key": null,
+        "text": "We are building a multi-agent context compression engine. Summarize the core objective in one sentence.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_d82fbf0fd2b0"
+        ]
+      },
+      {
+        "id": "mem_fallback_4",
+        "key": null,
+        "text": "Add a constraint: compression must be inspectable and deterministic.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_b6b8e0b5f097"
+        ]
+      },
+      {
+        "id": "mem_fallback_5",
+        "key": null,
+        "text": "Add a constraint: token usage reduction must be at least 50%.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_d87497f9536a"
+        ]
+      },
+      {
+        "id": "mem_fallback_6",
+        "key": null,
+        "text": "Change request: the UI is minimal web only; no CLI.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_0bacecb8fc38"
+        ]
+      },
+      {
+        "id": "mem_fallback_7",
+        "key": null,
+        "text": "We are building a multi-agent context compression engine. Summarize the core objective in one sentence.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_d82fbf0fd2b0"
+        ]
+      },
+      {
+        "id": "mem_fallback_8",
+        "key": null,
+        "text": "Add a constraint: compression must be inspectable and deterministic.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_b6b8e0b5f097"
+        ]
+      },
+      {
+        "id": "mem_fallback_9",
+        "key": null,
+        "text": "Add a constraint: token usage reduction must be at least 50%.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_d87497f9536a"
+        ]
+      },
+      {
+        "id": "mem_fallback_10",
+        "key": null,
+        "text": "Change request: the UI is minimal web only; no CLI.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_0bacecb8fc38"
+        ]
+      },
+      {
+        "id": "mem_fallback_11",
+        "key": null,
+        "text": "Now propose how memory tiers interact and what gets injected first.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_a338a2d71355"
+        ]
+      },
+      {
+        "id": "mem_fallback_12",
+        "key": null,
+        "text": "Change request: Actually, allow both minimal web UI and CLI in the future; but MVP ships web only.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_8d356f864e14"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [],
+    "assumptions": [],
+    "definitions": [],
+    "open_loops": [],
+    "dropped": [],
+    "updated_at": "fallback"
+  },
+  "retrieval": {
+    "constraints_ids": [],
+    "definitions_terms": [],
+    "decisions_ids": [],
+    "facts_ids": [
+      "mem_fallback_1",
+      "mem_fallback_2",
+      "mem_fallback_3",
+      "mem_fallback_4",
+      "mem_fallback_5",
+      "mem_fallback_6"
+    ],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "fallback keyword retrieval"
+  },
+  "ts": "2026-01-08T09:01:06.117282+00:00"
+}

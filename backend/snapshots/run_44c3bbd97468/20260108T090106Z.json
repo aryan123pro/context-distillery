@@ -1,0 +1,30 @@
+{
+  "run_id": "run_44c3bbd97468",
+  "step_index": 1,
+  "objective": "Test objective for deterministic mode",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_fallback_1",
+        "key": null,
+        "text": "This is a test message for the compression engine",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_bc317d99303b"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [],
+    "assumptions": [],
+    "definitions": [],
+    "open_loops": [],
+    "dropped": [],
+    "updated_at": "fallback"
+  },
+  "ts": "2026-01-08T09:01:06.044102+00:00",
+  "forced": true
+}

@@ -1,0 +1,76 @@
+{
+  "run_id": "run_44c3bbd97468",
+  "step_index": 3,
+  "objective": "Test objective for deterministic mode",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_fallback_1",
+        "key": null,
+        "text": "This is a test message for the compression engine",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_bc317d99303b"
+        ]
+      },
+      {
+        "id": "mem_fallback_2",
+        "key": null,
+        "text": "This is a test message for the compression engine",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_bc317d99303b"
+        ]
+      },
+      {
+        "id": "mem_fallback_3",
+        "key": null,
+        "text": "Set compression threshold to 2000 tokens",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_21256d7ded05"
+        ]
+      },
+      {
+        "id": "mem_fallback_4",
+        "key": null,
+        "text": "Actually, change compression threshold to 1500 tokens instead",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_bf55717f4d70"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [],
+    "assumptions": [],
+    "definitions": [],
+    "open_loops": [],
+    "dropped": [],
+    "updated_at": "fallback"
+  },
+  "retrieval": {
+    "constraints_ids": [],
+    "definitions_terms": [],
+    "decisions_ids": [],
+    "facts_ids": [
+      "mem_fallback_1"
+    ],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "fallback keyword retrieval"
+  },
+  "ts": "2026-01-08T09:01:07.211322+00:00"
+}
