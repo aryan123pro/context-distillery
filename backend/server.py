@@ -15,13 +15,7 @@ from starlette.middleware.cors import CORSMiddleware
 from engine import storage
 from engine.demo import run_demo
 from engine.orchestrator import force_compress, step
-from engine.schemas import (
-    MemoryResponse,
-    RunCreateRequest,
-    RunResponse,
-    StepRequest,
-    StepResponse,
-)
+from engine.schemas import MemoryResponse, RunCreateRequest, StepRequest, StepResponse
 
 
 ROOT_DIR = Path(__file__).parent
@@ -84,14 +78,14 @@ async def create_run(req: RunCreateRequest):
         },
     )
 
-    return RunResponse(
-        run_id=run_id,
-        objective=req.objective,
-        created_at=run_doc["created_at"],
-        updated_at=run_doc["updated_at"],
-        step_index=0,
-        config=req.config or {},
-    )
+    return {
+        "run_id": run_id,
+        "objective": req.objective,
+        "created_at": run_doc["created_at"],
+        "updated_at": run_doc["updated_at"],
+        "step_index": 0,
+        "config": run_doc["config"],
+    }
 
 
 @api_router.get("/runs/{run_id}", response_model=RunResponse)
