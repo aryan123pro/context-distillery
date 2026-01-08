@@ -89,7 +89,7 @@ async def create_run(req: RunCreateRequest):
 
 
 @api_router.get("/runs/{run_id}", response_model=RunResponse)
-async def get_run(run_id: str):
+async def get_run_route(run_id: str):
     run = await storage.get_run(db, run_id)
     if not run:
         raise HTTPException(status_code=404, detail="run not found")
