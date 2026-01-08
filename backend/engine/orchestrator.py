@@ -77,8 +77,11 @@ async def step(db: AsyncIOMotorDatabase, run_id: str, user_message: str) -> Dict
     cwm = await storage.get_latest_cwm(db, run_id)
     ltm = await storage.get_latest_ltm(db, run_id)
 
-    # Baseline: inject full transcript (approx)
-    baseline_tokens = estimate_tokens("\n".join([m.get("role", "") + ":" + m.get("content", "") for m in full_messages]))
+    # Baseline: full transcript injected (approx), including objective.
+    baseline_blob = run.get("objective", "") + "\n" + "\n".join(
+        [m.get("role", "") + ":" + m.get("content", "") for m in full_messages]
+    )
+    baseline_tokens = estimate_tokens(baseline_blob)
 
     llm: Optional[LlmClient] = None
     if use_llm:
@@ -99,7 +102,11 @@ async def step(db: AsyncIOMotorDatabase, run_id: str, user_message: str) -> Dict
     )
     injected_context = assemble_injected_context(retrieval, cwm=cwm, ltm=ltm)
 
-    injected_tokens = estimate_tokens("\n".join([m.get("content", "") for m in injected_context]))
+    # Compressed prompt approximation: objective + injected memory + STM tail + latest user message.
+    injected_blob = "\n".join([m.get("content", "") for m in injected_context])
+    stm_blob = "\n".join([m.get("role", "") + ":" + m.get("content", "") for m in stm_tail])
+    compressed_blob = run.get("objective", "") + "\n" + injected_blob + "\n" + stm_blob + "\nuser:" + user_message
+    injected_tokens = estimate_tokens(compressed_blob)
 
     await storage.insert_event(db, event_doc(run_id, step_index, "retrieval", {"retrieval": retrieval, "injected_tokens": injected_tokens}))
 

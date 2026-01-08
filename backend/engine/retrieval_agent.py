@@ -51,7 +51,7 @@ def _fallback_retrieve(objective: str, user_message: str, cwm: Dict[str, Any] | 
     if not cwm:
         return out
 
-    def maybe_pick(section: str, key: str = "id"):
+    def maybe_pick(section: str, out_key: str, id_key: str = "id"):
         items = cwm.get(section, [])
         for it in items:
             if it.get("status") == "deprecated":
@@ -60,19 +60,19 @@ def _fallback_retrieve(objective: str, user_message: str, cwm: Dict[str, Any] | 
             if not text:
                 continue
             if any(tok in text for tok in user_lower.split()[:20]):
-                if section == "definitions":
-                    out["definitions_terms"].append(it.get("term"))
+                if out_key == "definitions_terms":
+                    out[out_key].append(it.get("term"))
                 else:
-                    out[f"{section}_ids"].append(it.get(key))
+                    out[out_key].append(it.get(id_key))
                 if sum(len(v) for k, v in out.items() if k.endswith("ids") or k.endswith("terms")) >= 8:
                     return
 
-    maybe_pick("constraints")
-    maybe_pick("definitions", key="term")
-    maybe_pick("decisions")
-    maybe_pick("facts")
-    maybe_pick("assumptions")
-    maybe_pick("open_loops")
+    maybe_pick("constraints", "constraints_ids")
+    maybe_pick("definitions", "definitions_terms", id_key="term")
+    maybe_pick("decisions", "decisions_ids")
+    maybe_pick("facts", "facts_ids")
+    maybe_pick("assumptions", "assumptions_ids")
+    maybe_pick("open_loops", "open_loop_ids")
     return out
 
 
