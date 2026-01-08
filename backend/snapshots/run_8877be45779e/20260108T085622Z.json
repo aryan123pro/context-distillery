@@ -1,0 +1,164 @@
+{
+  "run_id": "run_8877be45779e",
+  "step_index": 4,
+  "objective": "Build an MVP multi-agent context compression engine with STM/CWM/LTM, compression triggers, retrieval-based rehydration, and token reduction metrics.",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_f1",
+        "key": "project.objective",
+        "text": "Objective: Build an MVP multi-agent context compression engine with STM/CWM/LTM, compression triggers, retrieval-based rehydration, and token reduction metrics.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_c1cc4552bfc8"
+        ]
+      }
+    ],
+    "decisions": [
+      {
+        "id": "mem_d1",
+        "key": "ui.surface",
+        "text": "UI will be minimal web only; no CLI.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_88dcbaad7993"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "id": "mem_c1",
+        "key": "compression.determinism_inspectability",
+        "text": "Compression must be deterministic and inspectable (same inputs/config/model => identical outputs; emit audit record of keep/drop/merge).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_3c336c9af711",
+          "msg_6b06fada5422"
+        ]
+      },
+      {
+        "id": "mem_c2",
+        "key": "metrics.token_reduction_min",
+        "text": "Token usage reduction per compression event must be at least 50% (post_tokens/pre_tokens <= 0.50).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_ffc9f233f0b1",
+          "msg_8dccf0eec826"
+        ]
+      }
+    ],
+    "assumptions": [],
+    "definitions": [
+      {
+        "term": "STM",
+        "definition": "Short-term memory: recent verbatim conversation/messages used as immediate context.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_c1cc4552bfc8"
+        ]
+      },
+      {
+        "term": "CWM",
+        "definition": "Current working memory: structured, compressed representation of active facts/constraints/decisions/open loops used for planning and execution.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_c1cc4552bfc8"
+        ]
+      },
+      {
+        "term": "LTM",
+        "definition": "Long-term memory: persisted knowledge extracted from conversations/artifacts for later retrieval and rehydration.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_c1cc4552bfc8"
+        ]
+      },
+      {
+        "term": "retrieval-based rehydration",
+        "definition": "Process of fetching the minimal relevant memories from CWM/LTM to reconstruct needed context for the next step.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_c1cc4552bfc8"
+        ]
+      },
+      {
+        "term": "compression triggers",
+        "definition": "Conditions that initiate summarization/compaction of context (e.g., token thresholds or step boundaries).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_c1cc4552bfc8"
+        ]
+      },
+      {
+        "term": "token reduction metrics",
+        "definition": "Measurements comparing token usage before vs after compression (and potentially after rehydration).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_c1cc4552bfc8",
+          "msg_8dccf0eec826"
+        ]
+      }
+    ],
+    "open_loops": [],
+    "dropped": [
+      {
+        "text": "Implementation guidance details (e.g., temperature=0, stable sorting, deterministic retrieval tie-breakers, regression tests) as explicit decisions.",
+        "reason": "Appears as assistant-proposed guidance, not user-confirmed requirements; keep only the top-level determinism/inspectability constraint."
+      },
+      {
+        "text": "Planner/critic implementation specifics (e.g., audit log schema, determinism tests) not present in verbatim user messages.",
+        "reason": "Not explicitly stated by user; defer until confirmed/introduced as decisions."
+      }
+    ],
+    "updated_at": "2026-01-08T08:56:10.000Z"
+  },
+  "retrieval": {
+    "constraints_ids": [
+      "mem_c1"
+    ],
+    "definitions_terms": [
+      "STM",
+      "CWM",
+      "LTM",
+      "retrieval-based rehydration"
+    ],
+    "decisions_ids": [],
+    "facts_ids": [
+      "mem_f1"
+    ],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "Keep core objective + determinism/inspectability constraint and only essential memory system definitions needed to process the UI change request (web-only, no CLI). No other decisions/open loops present."
+  },
+  "ts": "2026-01-08T08:56:22.173450+00:00"
+}
