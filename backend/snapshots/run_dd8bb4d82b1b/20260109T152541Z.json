@@ -1,0 +1,50 @@
+{
+  "run_id": "run_dd8bb4d82b1b",
+  "step_index": 2,
+  "objective": "Demo objective for testing compression engine",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_fallback_1",
+        "key": null,
+        "text": "We are building a multi-agent context compression engine. Summarize the core objective in one sentence.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_baccd2984411"
+        ]
+      },
+      {
+        "id": "mem_fallback_2",
+        "key": null,
+        "text": "Add a constraint: compression must be inspectable and deterministic.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_6386921bbb31"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [],
+    "assumptions": [],
+    "definitions": [],
+    "open_loops": [],
+    "dropped": [],
+    "updated_at": "fallback"
+  },
+  "retrieval": {
+    "constraints_ids": [],
+    "definitions_terms": [],
+    "decisions_ids": [],
+    "facts_ids": [],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "fallback keyword retrieval"
+  },
+  "ts": "2026-01-09T15:25:41.996520+00:00"
+}
