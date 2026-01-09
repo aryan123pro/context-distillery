@@ -1,0 +1,164 @@
+{
+  "run_id": "run_892a32e826aa",
+  "step_index": 6,
+  "objective": "Build an MVP multi-agent context compression engine with STM/CWM/LTM, compression triggers, retrieval-based rehydration, and token reduction metrics.",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_fact_001",
+        "key": "project.objective",
+        "text": "Objective: build an MVP multi-agent context compression engine with STM/CWM/LTM, compression triggers, retrieval-based rehydration, and token reduction metrics.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [
+      {
+        "id": "mem_constraint_001",
+        "key": "compression.deterministic_inspectable",
+        "text": "Compression must be deterministic and inspectable (pure function, versioned rules, fixed ordering; reproducible retrieval; auditable).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_2350fce2cd41",
+          "msg_d1961afc645c"
+        ]
+      },
+      {
+        "id": "mem_constraint_002",
+        "key": "compression.token_reduction_threshold",
+        "text": "Token usage reduction must be >= 50%, defined deterministically as (tokens_before - tokens_after) / tokens_before >= 0.50 using a fixed tokenizer version; log tokens_before/tokens_after/ratio.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_f8a65e018fba",
+          "msg_cda8ba330476"
+        ]
+      },
+      {
+        "id": "mem_constraint_003",
+        "key": "ui.web_only",
+        "text": "UI must be minimal web-only; no CLI.",
+        "status": "deprecated",
+        "supersedes": [],
+        "superseded_by": "mem_constraint_004",
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_d4c794f4cff3"
+        ]
+      },
+      {
+        "id": "mem_constraint_004",
+        "key": "ui.mvp_web_only_cli_future",
+        "text": "MVP ships minimal web UI only; CLI is deferred but architecture must allow adding a CLI later (shared core logic / stable interface).",
+        "status": "active",
+        "supersedes": [
+          "mem_constraint_003"
+        ],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_3c08505aea2f"
+        ]
+      }
+    ],
+    "assumptions": [],
+    "definitions": [
+      {
+        "term": "STM",
+        "definition": "Short-term memory store for recent context in the engine.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "CWM",
+        "definition": "Compressed working memory: structured, persisted distilled state used to reduce context while preserving key semantics.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "LTM",
+        "definition": "Long-term memory store for durable information, retrievable to rehydrate context when needed.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "compression triggers",
+        "definition": "Conditions under which the engine compresses context/memory to reduce token usage.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "retrieval-based rehydration",
+        "definition": "Process of restoring needed context by retrieving relevant items from memory stores (e.g., LTM) after compression.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "token reduction metrics",
+        "definition": "Measurements quantifying token savings achieved via compression (e.g., before/after token counts).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      }
+    ],
+    "open_loops": [],
+    "dropped": [],
+    "updated_at": "2026-01-09T15:34:19.113134+00:00"
+  },
+  "retrieval": {
+    "constraints_ids": [
+      "mem_constraint_001",
+      "mem_constraint_002",
+      "mem_constraint_003"
+    ],
+    "definitions_terms": [],
+    "decisions_ids": [],
+    "facts_ids": [
+      "mem_fact_001"
+    ],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "Need objective + active constraints to process UI change request; include current UI constraint to supersede/adjust. Definitions/LTM not needed."
+  },
+  "ts": "2026-01-09T15:34:56.938187+00:00"
+}

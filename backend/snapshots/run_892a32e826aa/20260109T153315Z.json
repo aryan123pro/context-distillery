@@ -1,0 +1,152 @@
+{
+  "run_id": "run_892a32e826aa",
+  "step_index": 4,
+  "objective": "Build an MVP multi-agent context compression engine with STM/CWM/LTM, compression triggers, retrieval-based rehydration, and token reduction metrics.",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_fact_001",
+        "key": "project.objective",
+        "text": "Objective: build an MVP multi-agent context compression engine with STM/CWM/LTM, compression triggers, retrieval-based rehydration, and token reduction metrics.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [
+      {
+        "id": "mem_constraint_001",
+        "key": "compression.deterministic_inspectable",
+        "text": "Compression must be deterministic and inspectable (pure function, versioned rules, fixed ordering; reproducible retrieval; auditable).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_2350fce2cd41",
+          "msg_d1961afc645c"
+        ]
+      },
+      {
+        "id": "mem_constraint_002",
+        "key": "compression.token_reduction_threshold",
+        "text": "Token usage reduction must be >= 50%, defined deterministically as (tokens_before - tokens_after) / tokens_before >= 0.50 using a fixed tokenizer version; log tokens_before/tokens_after/ratio.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_f8a65e018fba",
+          "msg_cda8ba330476"
+        ]
+      },
+      {
+        "id": "mem_constraint_003",
+        "key": "ui.web_only",
+        "text": "UI must be minimal web-only; no CLI.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_d4c794f4cff3"
+        ]
+      }
+    ],
+    "assumptions": [],
+    "definitions": [
+      {
+        "term": "STM",
+        "definition": "Short-term memory store for recent context in the engine.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "CWM",
+        "definition": "Compressed working memory: structured, persisted distilled state used to reduce context while preserving key semantics.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "LTM",
+        "definition": "Long-term memory store for durable information, retrievable to rehydrate context when needed.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "compression triggers",
+        "definition": "Conditions under which the engine compresses context/memory to reduce token usage.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "retrieval-based rehydration",
+        "definition": "Process of restoring needed context by retrieving relevant items from memory stores (e.g., LTM) after compression.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      },
+      {
+        "term": "token reduction metrics",
+        "definition": "Measurements quantifying token savings achieved via compression (e.g., before/after token counts).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f8d3520a584e"
+        ]
+      }
+    ],
+    "open_loops": [],
+    "dropped": [],
+    "updated_at": "2026-01-09T15:32:35.113621+00:00"
+  },
+  "retrieval": {
+    "constraints_ids": [
+      "mem_constraint_001"
+    ],
+    "definitions_terms": [
+      "STM",
+      "CWM",
+      "LTM"
+    ],
+    "decisions_ids": [],
+    "facts_ids": [
+      "mem_fact_001"
+    ],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "Keep core objective and determinism/inspectability constraint plus minimal memory-store definitions; needed to incorporate latest change request (web-only UI) without pulling extra items."
+  },
+  "ts": "2026-01-09T15:33:15.583481+00:00"
+}
