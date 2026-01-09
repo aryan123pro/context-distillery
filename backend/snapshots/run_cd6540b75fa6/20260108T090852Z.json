@@ -1,0 +1,232 @@
+{
+  "run_id": "run_cd6540b75fa6",
+  "step_index": 3,
+  "objective": "Build an MVP multi-agent context compression engine with STM/CWM/LTM, compression triggers, retrieval-based rehydration, and token reduction metrics.",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_001",
+        "key": "mvp.components",
+        "text": "MVP context compression engine components: STM/CWM/LTM stores, compression triggers, retrieval-based rehydration, prompt assembly, and token reduction metrics/observability.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_002",
+        "key": "api.surface.mvp",
+        "text": "Proposed MVP API surface includes: POST /sessions/{id}/events, POST /sessions/{id}/compress, POST /sessions/{id}/prepare_prompt, GET /sessions/{id}/memory; plus configurable budgets/triggers/retrieval K/promotion rules.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_009",
+        "key": "schema.memory_item.unified",
+        "text": "Unify derived memory into a canonical MemoryItem with fields: {memory_item_id, session_id, tier(stm|cwm|ltm), kind(constraint|definition|decision|fact|assumption|open_loop|stm_summary), key?, content, tags, confidence, salience, ttl/expires_at, status, provenance}.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": []
+      },
+      {
+        "id": "mem_010",
+        "key": "schema.stm.event_log",
+        "text": "STM is an immutable event log (events have seq ordering) plus derived rolling summary/snapshots; only derived artifacts are supersedable.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": []
+      }
+    ],
+    "decisions": [],
+    "constraints": [
+      {
+        "id": "mem_003",
+        "key": "quality.parity_target",
+        "text": "Quality target: task success parity within ±5% vs baseline full-context.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_004",
+        "key": "token.reduction_target",
+        "text": "Token reduction target: ~30–60% vs baseline sending last-N messages.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_005",
+        "key": "latency.overhead_p95_target",
+        "text": "Added latency target (p95) for compression+retrieval: ≤300–800ms (configurable).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_006",
+        "key": "auditability.requirement",
+        "text": "Auditability requirement: every memory item traceable to source messages (provenance).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_007",
+        "key": "prompt.budgeting_policy",
+        "text": "Prompt assembly must enforce a token budget with graceful degradation, dropping lowest priority sections first while keeping high-priority constraints/decisions.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "mem_008",
+        "key": "mvp.non_goals",
+        "text": "MVP non-goals include: perfect cross-user personalization, fully autonomous agent planning, and advanced PII/compliance (beyond simple hooks).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "term": "STM",
+        "definition": "Short-Term Memory: immutable event log of recent turns; may maintain a derived rolling summary/snapshots for compaction.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "term": "CWM",
+        "definition": "Current Working Memory: structured, minimal state for the active objective (constraints, definitions, decisions, facts, assumptions, open loops).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "term": "LTM",
+        "definition": "Long-Term Memory: durable, indexed memory store with provenance; retrieved to rehydrate context under a token budget.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "term": "Memory item",
+        "definition": "Atomic derived memory unit stored in CWM/LTM (and optionally STM summaries) with provenance, confidence, salience, TTL, and supersession metadata.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "term": "Supersession",
+        "definition": "Versioning mechanism where a new item replaces one or more older items while keeping lineage and provenance (fields: lineage_id, version, supersedes[], superseded_by, status).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": []
+      }
+    ],
+    "open_loops": [
+      {
+        "id": "loop_001",
+        "question": "Define the API endpoints and what each returns (request/response schemas, minimal MVP vs optional endpoints).",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_002",
+        "question": "Select concrete defaults/targets: token thresholds, turn/time triggers, retrieval top-K, and token budget policy details.",
+        "owner": "orchestrator",
+        "status": "open"
+      },
+      {
+        "id": "loop_003",
+        "question": "Decide evaluation tasks and baseline comparisons for token reduction and quality parity metrics.",
+        "owner": "orchestrator",
+        "status": "open"
+      },
+      {
+        "id": "loop_004",
+        "question": "Decide supersession invariants: single lineage across tiers vs per-tier; linear vs merge supersession; require stable key; concurrency/uniqueness rules for one active per lineage.",
+        "owner": "critic",
+        "status": "open"
+      }
+    ],
+    "dropped": [],
+    "updated_at": "2026-01-08T09:07:55.000Z"
+  },
+  "retrieval": {
+    "constraints_ids": [
+      "mem_006"
+    ],
+    "definitions_terms": [
+      "STM",
+      "CWM",
+      "LTM",
+      "Memory item"
+    ],
+    "decisions_ids": [],
+    "facts_ids": [
+      "mem_001"
+    ],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "For designing a 3-tier memory schema with supersession, we only need the tier definitions + the base memory item shape and the provenance/auditability constraint; include the MVP components fact to keep scope aligned."
+  },
+  "ts": "2026-01-08T09:08:52.762376+00:00"
+}

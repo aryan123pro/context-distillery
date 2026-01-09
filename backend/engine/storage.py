@@ -7,10 +7,23 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 from motor.motor_asyncio import AsyncIOMotorDatabase
+from bson import ObjectId
 
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+
+def sanitize_for_json(obj: Any) -> Any:
+    # Recursively convert MongoDB ObjectId to str (and handle nested payloads).
+    if isinstance(obj, ObjectId):
+        return str(obj)
+    if isinstance(obj, dict):
+        return {k: sanitize_for_json(v) for k, v in obj.items() if k != "_id"}
+    if isinstance(obj, list):
+        return [sanitize_for_json(x) for x in obj]
+    return obj
 
 
 def _snap_dir(run_id: str) -> Path:
@@ -20,7 +33,8 @@ def _snap_dir(run_id: str) -> Path:
 
 
 async def create_run(db: AsyncIOMotorDatabase, run_doc: Dict[str, Any]) -> None:
-    await db.runs.insert_one(run_doc)
+    # MongoDB insert mutates dict by adding _id; avoid leaking ObjectId into other payloads.
+    await db.runs.insert_one(copy.deepcopy(run_doc))
 
 
 async def get_run(db: AsyncIOMotorDatabase, run_id: str) -> Optional[Dict[str, Any]]:
@@ -32,7 +46,7 @@ async def update_run(db: AsyncIOMotorDatabase, run_id: str, patch: Dict[str, Any
 
 
 async def append_message(db: AsyncIOMotorDatabase, run_id: str, message: Dict[str, Any]) -> None:
-    await db.messages.insert_one(message)
+    await db.messages.insert_one(copy.deepcopy(message))
 
 
 async def list_messages(db: AsyncIOMotorDatabase, run_id: str, limit: int = 200) -> List[Dict[str, Any]]:
@@ -49,13 +63,14 @@ async def list_stm_tail(db: AsyncIOMotorDatabase, run_id: str, limit: int) -> Li
 
 
 async def insert_event(db: AsyncIOMotorDatabase, event: Dict[str, Any]) -> None:
-    await db.events.insert_one(event)
+    await db.events.insert_one(copy.deepcopy(event))
 
 
 async def list_events(db: AsyncIOMotorDatabase, run_id: str, limit: int = 500) -> List[Dict[str, Any]]:
-    return await (
+    docs = await (
         db.events.find({"run_id": run_id}, {"_id": 0}).sort("ts", 1).to_list(limit)
     )
+    return sanitize_for_json(docs)
 
 
 async def set_latest_cwm(db: AsyncIOMotorDatabase, run_id: str, cwm: Dict[str, Any]) -> None:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import logging
 import os
 import uuid
@@ -65,6 +66,10 @@ async def create_run(req: RunCreateRequest):
         },
     }
 
+    # IMPORTANT: Mongo may add an ObjectId _id field to the inserted dict in-place.
+    # We snapshot a deep copy for event payload to keep the event JSON-serializable.
+    run_doc_for_event = copy.deepcopy(run_doc)
+
     await storage.create_run(db, run_doc)
     await storage.insert_event(
         db,
@@ -74,7 +79,7 @@ async def create_run(req: RunCreateRequest):
             "step_index": 0,
             "ts": now_iso(),
             "type": "run_created",
-            "payload": {"run": run_doc},
+            "payload": {"run": run_doc_for_event},
         },
     )
 

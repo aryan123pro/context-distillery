@@ -1,0 +1,198 @@
+{
+  "run_id": "run_cd6540b75fa6",
+  "step_index": 2,
+  "objective": "Build an MVP multi-agent context compression engine with STM/CWM/LTM, compression triggers, retrieval-based rehydration, and token reduction metrics.",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_001",
+        "key": "mvp.components",
+        "text": "MVP context compression engine components: STM/CWM/LTM stores, compression triggers, retrieval-based rehydration, prompt assembly, and token reduction metrics/observability.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_002",
+        "key": "api.surface.mvp",
+        "text": "Proposed MVP API surface includes: POST /sessions/{id}/events, POST /sessions/{id}/compress, POST /sessions/{id}/prepare_prompt, GET /sessions/{id}/memory; plus configurable budgets/triggers/retrieval K/promotion rules.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [
+      {
+        "id": "mem_003",
+        "key": "quality.parity_target",
+        "text": "Quality target: task success parity within ±5% vs baseline full-context.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_004",
+        "key": "token.reduction_target",
+        "text": "Token reduction target: ~30–60% vs baseline sending last-N messages.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_005",
+        "key": "latency.overhead_p95_target",
+        "text": "Added latency target (p95) for compression+retrieval: ≤300–800ms (configurable).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_006",
+        "key": "auditability.requirement",
+        "text": "Auditability requirement: every memory item traceable to source messages (provenance).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "id": "mem_007",
+        "key": "prompt.budgeting_policy",
+        "text": "Prompt assembly must enforce a token budget with graceful degradation, dropping lowest priority sections first while keeping high-priority constraints/decisions.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "mem_008",
+        "key": "mvp.non_goals",
+        "text": "MVP non-goals include: perfect cross-user personalization, fully autonomous agent planning, and advanced PII/compliance (beyond simple hooks).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "term": "STM",
+        "definition": "Short-Term Memory: recent verbatim turns + short rolling summary; high churn.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "term": "CWM",
+        "definition": "Current Working Memory: structured state for the active objective (constraints, definitions, decisions, facts, assumptions, open loops); kept small and precise.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "term": "LTM",
+        "definition": "Long-Term Memory: durable, indexed knowledge with provenance; supports retrieval for rehydration.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      },
+      {
+        "term": "Memory item",
+        "definition": "Atomic stored unit with fields: {id, type, content, source_span, timestamp, confidence, tags, ttl, salience_score}.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_4df9ef602ba6"
+        ]
+      }
+    ],
+    "open_loops": [
+      {
+        "id": "loop_001",
+        "question": "Define the API endpoints and what each returns (request/response schemas, minimal MVP vs optional endpoints).",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_002",
+        "question": "Select concrete defaults/targets: token thresholds, turn/time triggers, retrieval top-K, and token budget policy details.",
+        "owner": "orchestrator",
+        "status": "open"
+      },
+      {
+        "id": "loop_003",
+        "question": "Decide evaluation tasks and baseline comparisons for token reduction and quality parity metrics.",
+        "owner": "orchestrator",
+        "status": "open"
+      }
+    ],
+    "dropped": [],
+    "updated_at": "2026-01-08T09:06:45.000Z"
+  },
+  "retrieval": {
+    "constraints_ids": [],
+    "definitions_terms": [
+      "STM",
+      "CWM",
+      "LTM"
+    ],
+    "decisions_ids": [],
+    "facts_ids": [
+      "prd_api_surface_mvp_endpoints_listed"
+    ],
+    "assumptions_ids": [
+      "need_api_endpoints_for_mvp_context_compression_engine"
+    ],
+    "open_loop_ids": [
+      "api_endpoint_request_response_schemas_not_yet_defined"
+    ],
+    "notes": "Keep only the core memory concepts (STM/CWM/LTM) and the previously proposed MVP endpoint list; the next step is to define each endpoint’s return payloads/schemas."
+  },
+  "ts": "2026-01-08T09:07:37.871512+00:00"
+}
