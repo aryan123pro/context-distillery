@@ -139,7 +139,10 @@ async def get_memory(run_id: str):
 
     cfg = run.get("config", {})
     stm = await storage.list_stm_tail(db, run_id, limit=int(cfg.get("stm_max_messages", 12)))
-    cwm = await storage.get_latest_cwm(db, run_id)
+    # Disk-backed CWM is the source of truth
+    from memory_store import load_cwm_runtime
+
+    cwm = load_cwm_runtime()
     ltm = await storage.get_latest_ltm(db, run_id)
     metrics = await storage.get_metrics(db, run_id)
 
