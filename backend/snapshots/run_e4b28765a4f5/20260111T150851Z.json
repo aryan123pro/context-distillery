@@ -1,0 +1,46 @@
+{
+  "run_id": "run_e4b28765a4f5",
+  "step_index": 1,
+  "objective": "NORMAL LLM",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_1",
+        "key": "user.name",
+        "text": "User's name is Aryan.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_68cd63a947de"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [],
+    "assumptions": [],
+    "definitions": [],
+    "open_loops": [
+      {
+        "id": "loop_1",
+        "question": "What is the user working on or what help do they want today?",
+        "owner": "orchestrator",
+        "status": "open"
+      }
+    ],
+    "dropped": [
+      {
+        "text": "hello (mem_fallback_1)",
+        "reason": "Non-informative prior memory item; superseded by more specific fact (user.name)."
+      },
+      {
+        "text": "hello (mem_fallback_2)",
+        "reason": "Non-informative prior memory item; superseded by more specific fact (user.name)."
+      }
+    ],
+    "updated_at": "2026-01-11T15:08:55.000000+00:00"
+  },
+  "ts": "2026-01-11T15:08:51.361696+00:00",
+  "forced": true
+}
