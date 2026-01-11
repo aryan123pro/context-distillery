@@ -1,0 +1,39 @@
+{
+  "run_id": "run_eaa0ad9265e2",
+  "step_index": 1,
+  "objective": "Disk CWM test",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_fallback_1",
+        "key": null,
+        "text": "hello",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_2b1b52d1163e"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [],
+    "open_loops": [],
+    "superseded": [],
+    "assumptions": [],
+    "definitions": [],
+    "dropped": [],
+    "updated_at": "fallback"
+  },
+  "retrieval": {
+    "constraints_ids": [],
+    "definitions_terms": [],
+    "decisions_ids": [],
+    "facts_ids": [],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "fallback keyword retrieval"
+  },
+  "ts": "2026-01-11T15:03:35.717590+00:00"
+}
