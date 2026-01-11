@@ -12,6 +12,7 @@ from .compression_agent import compress
 from .retrieval_agent import retrieve_minimal, assemble_injected_context
 from .worker_agents import run_planner, run_critic
 from . import storage
+from memory_store import load_cwm_runtime, save_cwm_from_runtime
 
 
 def now_iso() -> str:
@@ -159,7 +160,8 @@ async def step(db: AsyncIOMotorDatabase, run_id: str, user_message: str) -> Dict
             prior_cwm=cwm,
             use_llm=use_llm,
         )
-        await storage.set_latest_cwm(db, run_id, new_cwm)
+        # Persist ONLY strict CWM schema to disk after compression completes
+        save_cwm_from_runtime(new_cwm)
         await storage.insert_event(db, event_doc(run_id, step_index, "compression", {"cwm": new_cwm}))
 
         snapshot = {
@@ -218,7 +220,8 @@ async def force_compress(db: AsyncIOMotorDatabase, run_id: str) -> Dict[str, Any
         )
 
     new_cwm = await compress(llm=llm, objective=run.get("objective", ""), full_messages=full_messages, prior_cwm=cwm, use_llm=use_llm)
-    await storage.set_latest_cwm(db, run_id, new_cwm)
+    # Persist ONLY strict CWM schema to disk after compression completes
+    save_cwm_from_runtime(new_cwm)
     await storage.insert_event(db, event_doc(run_id, step_index, "compression", {"cwm": new_cwm, "forced": True}))
 
     snapshot = {
