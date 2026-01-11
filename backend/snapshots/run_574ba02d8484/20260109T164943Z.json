@@ -1,0 +1,214 @@
+{
+  "run_id": "run_574ba02d8484",
+  "step_index": 1,
+  "objective": "Help student choose his career path",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_1",
+        "key": "user.name",
+        "text": "User's name is Dheer.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_c46344b18820"
+        ]
+      },
+      {
+        "id": "mem_2",
+        "key": "academics.grades.current",
+        "text": "Current grades: Maths-D, Chemistry-E, Physics-E.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_c46344b18820"
+        ]
+      },
+      {
+        "id": "mem_3",
+        "key": "academics.grades.predicted_12th",
+        "text": "Predicted 12th grades: Maths-C, Chemistry-D, Physics-D, English-C.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_c46344b18820"
+        ]
+      },
+      {
+        "id": "mem_4",
+        "key": "extracurriculars.chess",
+        "text": "User is really good at chess and has played at higher levels.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_c46344b18820"
+        ]
+      },
+      {
+        "id": "mem_5",
+        "key": "extracurriculars.cricket",
+        "text": "User is really good at cricket and has played at higher levels.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_c46344b18820"
+        ]
+      },
+      {
+        "id": "mem_6",
+        "key": "objective",
+        "text": "Objective: Help student choose his career path.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_c46344b18820"
+        ]
+      }
+    ],
+    "decisions": [
+      {
+        "id": "mem_7",
+        "key": "country_paths.recommended",
+        "text": "Initial recommended country pathways: UK (Foundation Year/International Year One), Australia (Diploma/Pathway), Canada (College then transfer), New Zealand (Pathways), USA (only if strong sports profile + test scores + budget).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_39522b77687b"
+        ]
+      },
+      {
+        "id": "mem_8",
+        "key": "education_strategy",
+        "text": "Suggested strategy: use foundation/diploma/pathway routes rather than direct entry into competitive STEM/engineering programs.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_39522b77687b"
+        ]
+      },
+      {
+        "id": "mem_9",
+        "key": "degree_directions.suggested",
+        "text": "Suggested degree directions aligned with chess/cricket: sports management/business/event management; sports data/analytics via IT/business analytics pathway; business/marketing (sports marketing/sponsorship); coaching/sport science (less STEM-heavy); game design/esports management.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_39522b77687b"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "id": "mem_10",
+        "key": "academics.constraint.entry_competitive_stem",
+        "text": "With current/predicted grades, direct entry to many top STEM/engineering programs is likely difficult; pathways recommended.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_39522b77687b"
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "mem_11",
+        "key": "sports_scholarships.assumption",
+        "text": "Athletic recruitment/scholarships may be possible but depend on verified performance, academics, tests, and funding; cricket is niche in the USA.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_39522b77687b"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "term": "pathway (foundation/diploma/college-transfer)",
+        "definition": "Alternative entry route to a degree when direct entry requirements are not met; includes foundation years, diplomas leading into year 2, or college programs that transfer to university.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_39522b77687b"
+        ]
+      }
+    ],
+    "open_loops": [
+      {
+        "id": "loop_1",
+        "question": "Which curriculum are the grades from (IGCSE/GCSE, CBSE, IB, etc.)?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_2",
+        "question": "What is the user's citizenship and current country of residence?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_3",
+        "question": "What is the user's annual budget (tuition + living) and whether scholarship is needed?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_4",
+        "question": "Preferred intake timing (e.g., 2026 Sep or earlier)?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_5",
+        "question": "Any planned/completed tests (IELTS/TOEFL, SAT/ACT)?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_6",
+        "question": "What does the user want to study right now (pick 2: business, IT, sports management, media, hospitality, other)?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_7",
+        "question": "Does the user want a sports-related career or a non-sports career using sports as an admissions strength?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_8",
+        "question": "Can the user provide a sports profile pack (match stats, rankings/titles, certificates, highlights video, coach references) to support applications?",
+        "owner": "planner",
+        "status": "open"
+      }
+    ],
+    "dropped": [],
+    "updated_at": "2026-01-09T16:48:00.000Z"
+  },
+  "ts": "2026-01-09T16:49:43.444331+00:00",
+  "forced": true
+}

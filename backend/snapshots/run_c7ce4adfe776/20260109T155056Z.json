@@ -1,0 +1,231 @@
+{
+  "run_id": "run_c7ce4adfe776",
+  "step_index": 3,
+  "objective": "help student in guiding towards thier education in USA and help him in which unis they shall apply",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_1",
+        "key": "user.name",
+        "text": "User's name is Aryan.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_c5f970cf430e"
+        ]
+      },
+      {
+        "id": "mem_2",
+        "key": "education.level",
+        "text": "Applying for undergraduate study in the USA.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_8cc156c15d6a"
+        ]
+      },
+      {
+        "id": "mem_3",
+        "key": "education.major",
+        "text": "Intended major: Computer Science (CS).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_8cc156c15d6a"
+        ]
+      },
+      {
+        "id": "mem_4",
+        "key": "tests.sat",
+        "text": "SAT score: 1340.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_8cc156c15d6a"
+        ]
+      },
+      {
+        "id": "mem_5",
+        "key": "academics.gpa",
+        "text": "GPA: 3.47.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_8cc156c15d6a"
+        ]
+      }
+    ],
+    "decisions": [
+      {
+        "id": "mem_6",
+        "key": "shortlist.strategy",
+        "text": "Build a balanced CS undergraduate university list using reach/match/safety buckets.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_f6091de7e112"
+        ]
+      },
+      {
+        "id": "mem_7",
+        "key": "shortlist.reach",
+        "text": "Starter reach schools: UW–Madison; UMD College Park; Purdue; Virginia Tech.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f6091de7e112"
+        ]
+      },
+      {
+        "id": "mem_8",
+        "key": "shortlist.match",
+        "text": "Starter match schools: Penn State (University Park); Michigan State; Indiana University Bloomington (Luddy); University of Arizona; Arizona State; University of Colorado Boulder (borderline).",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f6091de7e112"
+        ]
+      },
+      {
+        "id": "mem_9",
+        "key": "shortlist.safety",
+        "text": "Starter safety/likely schools: Iowa State; University of Utah; University of Illinois Chicago (UIC); UT Dallas; University of Nebraska–Lincoln.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "medium",
+        "source_message_ids": [
+          "msg_f6091de7e112"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "id": "mem_10",
+        "key": "objective",
+        "text": "Guide the student toward US education and recommend which universities to apply to.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": []
+      },
+      {
+        "id": "mem_11",
+        "key": "admissions.competitiveness",
+        "text": "CS undergraduate admissions are competitive; recommendations depend strongly on domestic vs international status and budget/aid needs.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_f6091de7e112"
+        ]
+      }
+    ],
+    "assumptions": [],
+    "definitions": [
+      {
+        "term": "Reach/Match/Safety buckets",
+        "definition": "Three-tier school list: reach (low probability), match (moderate), safety/likely (higher probability) based on applicant profile and program competitiveness.",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "high",
+        "source_message_ids": [
+          "msg_f6091de7e112"
+        ]
+      }
+    ],
+    "open_loops": [
+      {
+        "id": "loop_1",
+        "question": "Is Aryan an international applicant or US citizen/PR (and country if international)?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_2",
+        "question": "What is the annual budget (tuition + living), and is financial aid/scholarship needed?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_3",
+        "question": "English proficiency test status/score (TOEFL/IELTS/Duolingo) if international?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_4",
+        "question": "Which intake term and application timeline is planned (e.g., Fall 2026)?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_5",
+        "question": "Any preferences for location/weather/campus size/public vs private/target states?",
+        "owner": "planner",
+        "status": "open"
+      },
+      {
+        "id": "loop_6",
+        "question": "What CS-related extracurriculars/projects/internships/awards does Aryan have to refine reach vs match classification?",
+        "owner": "planner",
+        "status": "open"
+      }
+    ],
+    "dropped": [
+      {
+        "text": "so how is everything",
+        "reason": "Small talk; no durable preference, constraint, or decision added."
+      }
+    ],
+    "updated_at": "2026-01-09T15:49:21.852769+00:00"
+  },
+  "retrieval": {
+    "constraints_ids": [
+      "mem_10",
+      "mem_11"
+    ],
+    "definitions_terms": [
+      "Reach/Match/Safety buckets"
+    ],
+    "decisions_ids": [
+      "mem_6"
+    ],
+    "facts_ids": [
+      "mem_2",
+      "mem_3",
+      "mem_4",
+      "mem_5"
+    ],
+    "assumptions_ids": [],
+    "open_loop_ids": [
+      "loop_1",
+      "loop_2",
+      "loop_3",
+      "loop_4",
+      "loop_5",
+      "loop_6"
+    ],
+    "notes": "Keep only the applicant’s core profile (UG CS, SAT, GPA) plus the key constraint that CS outcomes hinge on intl/budget, the shortlist strategy definition, and the open questions needed to finalize a school list. Drop small talk and specific starter school names for minimality."
+  },
+  "ts": "2026-01-09T15:50:56.465787+00:00"
+}
