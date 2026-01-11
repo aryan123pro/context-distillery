@@ -1,0 +1,53 @@
+{
+  "run_id": "run_7be5468e8b30",
+  "step_index": 1,
+  "objective": "Disk CWM memory endpoint",
+  "cwm": {
+    "facts": [
+      {
+        "id": "mem_fallback_1",
+        "key": null,
+        "text": "hello",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_2b1b52d1163e"
+        ]
+      },
+      {
+        "id": "mem_fallback_2",
+        "key": null,
+        "text": "hello",
+        "status": "active",
+        "supersedes": [],
+        "superseded_by": null,
+        "confidence": "low",
+        "source_message_ids": [
+          "msg_4c963907d8b4"
+        ]
+      }
+    ],
+    "decisions": [],
+    "constraints": [],
+    "open_loops": [],
+    "superseded": [],
+    "assumptions": [],
+    "definitions": [],
+    "dropped": [],
+    "updated_at": "fallback"
+  },
+  "retrieval": {
+    "constraints_ids": [],
+    "definitions_terms": [],
+    "decisions_ids": [],
+    "facts_ids": [
+      "mem_fallback_1"
+    ],
+    "assumptions_ids": [],
+    "open_loop_ids": [],
+    "notes": "fallback keyword retrieval"
+  },
+  "ts": "2026-01-11T15:03:49.406780+00:00"
+}
