@@ -75,7 +75,8 @@ async def step(db: AsyncIOMotorDatabase, run_id: str, user_message: str) -> Dict
     # Load memories
     full_messages = await storage.list_messages(db, run_id, limit=500)
     stm_tail = await storage.list_stm_tail(db, run_id, limit=int(config.get("stm_max_messages", 12)))
-    cwm = await storage.get_latest_cwm(db, run_id)
+    # Disk-backed CWM is the source of truth (global, survives restarts)
+    cwm = load_cwm_runtime()
     ltm = await storage.get_latest_ltm(db, run_id)
 
     # Baseline: full transcript injected (approx), including objective.
@@ -210,7 +211,8 @@ async def force_compress(db: AsyncIOMotorDatabase, run_id: str) -> Dict[str, Any
 
     step_index = int(run.get("step_index", 0))
     full_messages = await storage.list_messages(db, run_id, limit=500)
-    cwm = await storage.get_latest_cwm(db, run_id)
+    # Disk-backed CWM is the source of truth (global, survives restarts)
+    cwm = load_cwm_runtime()
 
     llm: Optional[LlmClient] = None
     if use_llm:
